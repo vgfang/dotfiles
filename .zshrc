@@ -15,4 +15,4 @@ autoload -Uz compinit
 alias gp="export GOPATH=$(pwd)"
 alias penv="source env/bin/activate"
 
-export PATH="~/bin:$PATH"
+export PATH="$PATH:/opt/nvim-linux64/bin"
