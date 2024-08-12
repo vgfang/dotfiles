@@ -1,5 +1,6 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
+local home = os.getenv("HOME")
 
 function GetOS()
 	-- Unix, Linux variants
@@ -16,7 +17,7 @@ config.colors = {
 	cursor_bg = "#ffffff",
 	cursor_border = "#ffffff",
 }
-config.color_scheme = "tokyonight-storm"
+config.color_scheme = "Tokyo Night"
 
 if GetOS() == "Windows" then
 	-- if in windows launch wsl:ubuntu instead of powershell
@@ -29,7 +30,7 @@ if GetOS() == "Windows" then
 	config.default_domain = "WSL:Ubuntu"
 end
 
-config.window_background_image = "./wallpaper-mixed.png"
+config.window_background_image = home .. "/.config/wezterm/wallpaper-mixed.png"
 config.window_background_image_hsb = {
 	brightness = 1.0,
 	hue = 1.0,
