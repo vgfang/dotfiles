@@ -1,19 +1,34 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
+function GetOS()
+	-- Unix, Linux variants
+	local fh, _ = assert(io.popen("uname -o 2>/dev/null", "r"))
+	local osname = nil
+	if fh then
+		osname = fh:read()
+	end
+
+	return osname or "Windows"
+end
+
 config.colors = {
 	cursor_bg = "#ffffff",
 	cursor_border = "#ffffff",
 }
 config.color_scheme = "tokyonight-storm"
 
-config.wsl_domains = {
-	{
-		name = "WSL:Ubuntu",
-		distribution = "Ubuntu",
-	},
-}
-config.default_domain = "WSL:Ubuntu"
+if GetOS() == "Windows" then
+	-- if in windows launch wsl:ubuntu instead of powershell
+	config.wsl_domains = {
+		{
+			name = "WSL:Ubuntu",
+			distribution = "Ubuntu",
+		},
+	}
+	config.default_domain = "WSL:Ubuntu"
+end
+
 config.window_background_image = "./wallpaper-mixed.png"
 config.window_background_image_hsb = {
 	brightness = 1.0,
