@@ -12,8 +12,15 @@ SAVEHIST=1000
 
 autoload -Uz compinit
 
-export PATH=/usr/local/share/npm/bin:$PATH
+export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin"
+export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 
 alias gp="export GOPATH=$(pwd)"
 alias penv="source env/bin/activate"
