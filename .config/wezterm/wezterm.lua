@@ -30,11 +30,11 @@ if GetOS() == "Windows" then
 	config.default_domain = "WSL:Ubuntu"
 end
 
-config.window_background_image = home .. "/.config/wezterm/wallpaper-mixed.png"
-config.window_background_image_hsb = {
-	brightness = 1.0,
-	hue = 1.0,
-	saturation = 1.0,
-}
+-- config.window_background_image = home .. "/.config/wezterm/wallpaper-mixed.png"
+-- config.window_background_image_hsb = {
+-- 	brightness = 1.0,
+-- 	hue = 1.0,
+-- 	saturation = 1.0,
+-- }
 
 return config
