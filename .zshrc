@@ -31,3 +31,12 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ls alias for color based on OS
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias ls='ls --color=auto'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls -G'
+fi
