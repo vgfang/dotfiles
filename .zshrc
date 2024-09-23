@@ -40,3 +40,10 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls -G'
 fi
+
+# bun completions
+[ -s "/home/vgfang/.bun/_bun" ] && source "/home/vgfang/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
