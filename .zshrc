@@ -32,17 +32,18 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # ls alias for color based on OS
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias ls='ls --color=auto'
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls -G'
+    source $HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # bun completions
-[ -s "/home/vgfang/.bun/_bun" ] && source "/home/vgfang/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
