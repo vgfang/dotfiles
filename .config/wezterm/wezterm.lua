@@ -35,6 +35,9 @@ config.initial_cols = 84
 config.initial_rows = 24
 config.font_size = 14
 
+config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
+
 -- config.window_background_image = home .. "/.config/wezterm/wallpaper-mixed.png"
 -- config.window_background_image_hsb = {
 -- 	brightness = 1.0,
