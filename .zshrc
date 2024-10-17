@@ -1,3 +1,6 @@
+autoload -Uz compinit
+compinit
+
 HISTSIZE=1000
 SAVEHIST=1000
 
@@ -25,6 +28,7 @@ export PATH="$PATH:/usr/local/go/bin:$HOME/go/bin"
 alias gp="export GOPATH=$(pwd)"
 alias penv="source env/bin/activate"
 alias p="python3"
+alias n="nvim ."
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
