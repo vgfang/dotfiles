@@ -29,6 +29,8 @@ alias gp="export GOPATH=$(pwd)"
 alias penv="source env/bin/activate"
 alias p="python3"
 alias n="nvim ."
+# alias ins='bun add $1 -d @types/$1'
+alias doc="open -a Docker"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
