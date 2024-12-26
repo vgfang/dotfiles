@@ -31,7 +31,7 @@ if GetOS() == "Windows" then
 	config.default_domain = "WSL:Ubuntu"
 end
 
-config.initial_cols = 84
+config.initial_cols = 64
 config.initial_rows = 24
 config.font_size = 14
 

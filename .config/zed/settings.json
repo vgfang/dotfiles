@@ -14,20 +14,28 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Tokyo Night"
+    "dark": "Kanagawa Wave"
   },
   "vim_mode": true,
   "cursor_blink": false,
   "format_on_save": "on",
   "experimental.theme_overrides": {
-    "editor.background": "#1a1b26",
-    "background": "#1a1b26",
-    "panel.background": "#1a1b26",
+    // "editor.background": "#1a1b26",
+    // "background": "#1a1b26",
+    // "panel.background": "#1a1b26",
     "editor.gutter.background": "#1a1b26"
   },
   "project_panel": {
     "button": true,
     "dock": "right",
     "git_status": true
+  },
+  "lsp": {
+    "omnisharp": {
+      "binary": {
+        "path": "~/dev/omni/omnisharp-osx-arm64-net6.0/OmniSharp",
+        "arguments": ["optional", "additional", "args", "-lsp"]
+      }
+    }
   }
 }
