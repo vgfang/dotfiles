@@ -38,6 +38,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+dex() {
+  docker exec -it "$1" /bin/bash
+}
 
 # ls alias for color based on OS
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -54,3 +57,4 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export DOTNET_ROOT=/opt/homebrew/bin/dotnet
