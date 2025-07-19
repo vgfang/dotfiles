@@ -1,6 +1,0 @@
-theme = dark:kanagawabones,light:catppuccin-latte
-macos-titlebar-style = tabs
-cursor-style = bar
-cursor-style-blink = false
-shell-integration = zsh
-shell-integration-features = no-cursor
