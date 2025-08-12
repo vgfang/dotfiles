@@ -1,12 +1,13 @@
 {
   "window.density.editorTabHeight": "compact",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Kanagawa",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.colorCustomizations": {
     "tab.activeBackground": "#000000",
-    "tab.activeForeground": "#ffffff",
-    "tab.activeBorder": "#ffffff",
-    "terminal.background": "#000000"
+    "terminal.background": "#000000",
+    "[Evergreen]": {
+      "editor.background": "#1E2326"
+    }
   },
   "workbench.editor.empty.hint": "hidden",
   "workbench.editorAssociations": {
@@ -16,7 +17,7 @@
   "editor.fontSize": 14,
   "editor.cursorBlinking": "solid",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Monaspace Xenon','Jetbrains Mono', 'Consolas', 'Courier New', 'monospace'",
+  "editor.fontFamily": "'Jetbrains Mono', 'Consolas', 'Courier New', 'monospace'",
   "editor.fontLigatures": "'calt', 'liga', 'dlig'",
   "editor.wordWrap": "on",
   "editor.lineNumbers": "relative",
@@ -34,5 +35,8 @@
   "explorer.confirmDragAndDrop": false,
   "vim.useCtrlKeys": false,
   "vim.smartRelativeLine": true,
-  "files.simpleDialog.enable": true
+  "files.simpleDialog.enable": true,
+  "everforest.darkWorkbench": "flat",
+  "window.menuBarVisibility": "compact",
+  "workbench.layoutControl.enabled": false
 }
