@@ -12,11 +12,13 @@
 return {
   { "folke/tokyonight.nvim", priority = 1000 },
   { "rebelot/kanagawa.nvim", priority = 1000 },
+  { "morhetz/gruvbox", priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa-wave",
+      -- colorscheme = "kanagawa-wave",
       -- colorscheme = "tokyonight",
+      colorscheme = "gruvbox",
     },
   },
 }
