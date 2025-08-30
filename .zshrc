@@ -1,5 +1,4 @@
 autoload -Uz compinit
-compinit
 
 HISTSIZE=1000
 SAVEHIST=1000
@@ -8,12 +7,21 @@ bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey '^H' backward-kill-word
 
-NEWLINE=$'\n'
-PROMPT=$'[%F{cyan}%n%f@%F{red}%m%f%F{grey}%B%~%b%f]\n$ '
-HISTSIZE=1000
-SAVEHIST=1000
+autoload -Uz vcs_info
 
-autoload -Uz compinit
+zstyle ':vcs_info:*' enable git svn hg
+zstyle ':vcs_info:*' formats '(%F{blue}%b%f)'
+zstyle ':vcs_info:*' actionformats '(%F{yellow}%b|%a%f)'
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' use-current-name true
+
+precmd_functions+=( vcs_info );
+setopt prompt_subst
+compinit
+
+PROMPT=$'[%F{cyan}%n%f@%F{red}%m%f%F{gray}%B%~%b%f]${vcs_info_msg_0_}\n$ '
 
 export PATH="/usr/local/share/npm/bin:$PATH"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
@@ -29,14 +37,13 @@ alias gp="export GOPATH=$(pwd)"
 alias penv="source env/bin/activate"
 alias p="python3"
 alias n="nvim ."
-# alias ins='bun add $1 -d @types/$1'
 alias doc="open -a Docker"
 
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 dex() {
   docker exec -it "$1" /bin/bash

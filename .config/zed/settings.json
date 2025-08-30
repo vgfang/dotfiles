@@ -1,9 +1,14 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
+  "languages": {
+    "TSX": {
+      "show_inline_completions": true
+    }
+  },
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "provider": "google",
+      "model": "gemini-2.0-flash-exp"
     },
     "version": "2"
   },
@@ -21,21 +26,16 @@
   "format_on_save": "on",
   "experimental.theme_overrides": {
     // "editor.background": "#1a1b26",
-    // "background": "#1a1b26",
+    // "background": "#1a1b26"
     // "panel.background": "#1a1b26",
-    "editor.gutter.background": "#1a1b26"
+    // "editor.gutter.background": "#1a1b26"
   },
   "project_panel": {
     "button": true,
     "dock": "right",
     "git_status": true
   },
-  "lsp": {
-    "omnisharp": {
-      "binary": {
-        "path": "~/dev/omni/omnisharp-osx-arm64-net6.0/OmniSharp",
-        "arguments": ["optional", "additional", "args", "-lsp"]
-      }
-    }
+  "features": {
+    "inline_completion_provider": "supermaven"
   }
 }

@@ -1,6 +1,6 @@
-theme = dark:kanagawabones,light:catppuccin-latte
+theme = dark:GruvboxDark,light:catppuccin-latte
 macos-titlebar-style = tabs
-cursor-style = bar
+cursor-style = block
 cursor-style-blink = false
 shell-integration = zsh
 shell-integration-features = no-cursor

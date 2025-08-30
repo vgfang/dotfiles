@@ -20,8 +20,190 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    -- import/override with your plugins
-    { import = "plugins" },
+    
+    -- colorscheme configuration
+    { "folke/tokyonight.nvim", priority = 1000 },
+    { "rebelot/kanagawa.nvim", priority = 1000 },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 },
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "gruvbox",
+      },
+    },
+    
+    -- dashboard configuration
+    {
+      "folke/snacks.nvim",
+      opts = function(_, opts)
+        opts.dashboard = opts.dashboard or {}
+        opts.dashboard.preset = opts.dashboard.preset or {}
+        opts.dashboard.preset.header = [[
+███╗   ██╗██╗   ██╗██╗███╗   ███╗
+████╗  ██║██║   ██║██║████╗ ████║
+██╔██╗ ██║██║   ██║██║██╔████╔██║
+██║╚██╗██║╚██╗ ██╔╝██║██║╚██╔╝██║
+██║ ╚████║ ╚████╔╝ ██║██║ ╚═╝ ██║
+╚═╝  ╚═══╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
+]]
+        return opts
+      end,
+    },
+    
+    -- neo-tree configuration
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      opts = {
+        window = {
+          position = "right",
+          width = 32,
+        },
+      },
+    },
+    
+    -- disable blink.cmp since we're using nvim-cmp
+    { "saghen/blink.cmp", enabled = false },
+    
+    -- nvim-cmp configuration with supertab
+    {
+      "L3MON4D3/LuaSnip",
+      keys = function()
+        return {}
+      end,
+    },
+    {
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+        "hrsh7th/cmp-emoji",
+      },
+      opts = function(_, opts)
+        local has_words_before = function()
+          unpack = unpack or table.unpack
+          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+          return col ~= 0
+            and vim.api
+                .nvim_buf_get_lines(0, line - 1, line, true)[1]
+                :sub(col, col)
+                :match("%s")
+              == nil
+        end
+
+        local luasnip = require("luasnip")
+        local cmp = require("cmp")
+
+        opts.mapping = vim.tbl_extend("force", opts.mapping, {
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            elseif has_words_before() then
+              cmp.complete()
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+          ["<S-Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { "i", "s" }),
+        })
+      end,
+    },
+    
+    -- outline configuration
+    {
+      "hedyhli/outline.nvim",
+      keys = { { "<leader>cs", "<cmd>Outline<cr>", desc = "Toggle Outline" } },
+      cmd = "Outline",
+      opts = function()
+        local opts = {
+          keymaps = {
+            up_and_jump = "<up>",
+            down_and_jump = "<down>",
+          },
+          outline_window = {
+            position = "left",
+            width = 18,
+          },
+        }
+        return opts
+      end,
+    },
+    
+    -- telescope configuration
+    {
+      "nvim-telescope/telescope.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("telescope").setup({
+          defaults = {
+            file_ignore_patterns = { "node_modules" },
+          },
+        })
+      end,
+    },
+    
+    -- typescript/javascript configuration
+    {
+      "neovim/nvim-lspconfig",
+      opts = function(_, opts)
+        -- initialize servers table if it doesn't exist
+        opts.servers = opts.servers or {}
+
+        -- disable tsserver
+        opts.servers.tsserver = { enabled = false }
+
+        -- configure vtsls
+        opts.servers.vtsls =
+          vim.tbl_deep_extend("force", opts.servers.vtsls or {}, {
+            enabled = true,
+            settings = {
+              typescript = {
+                preferences = {
+                  importModuleSpecifier = "non-relative",
+                },
+                inlayHints = {
+                  enumMemberValues = { enabled = true },
+                  functionLikeReturnTypes = { enabled = true },
+                  parameterNames = { enabled = "literals" },
+                  parameterTypes = { enabled = true },
+                  propertyDeclarationTypes = { enabled = true },
+                  variableTypes = { enabled = false },
+                },
+              },
+              javascript = {
+                preferences = {
+                  importModuleSpecifier = "non-relative",
+                },
+                inlayHints = {
+                  enumMemberValues = { enabled = true },
+                  functionLikeReturnTypes = { enabled = true },
+                  parameterNames = { enabled = "literals" },
+                  parameterTypes = { enabled = true },
+                  propertyDeclarationTypes = { enabled = true },
+                  variableTypes = { enabled = false },
+                },
+              },
+              vtsls = {
+                autoUseWorkspaceTsdk = true,
+                enableMoveToFileCodeAction = true,
+                experimental = {
+                  completion = {
+                    enableServerSideFuzzyMatch = true,
+                  },
+                },
+              },
+            },
+          })
+        return opts
+      end,
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
