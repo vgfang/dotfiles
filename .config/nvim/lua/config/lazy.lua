@@ -1,7 +1,14 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local out = vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--branch=stable",
+    lazyrepo,
+    lazypath,
+  })
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
@@ -20,7 +27,7 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    
+
     -- colorscheme configuration
     { "folke/tokyonight.nvim", priority = 1000 },
     { "rebelot/kanagawa.nvim", priority = 1000 },
@@ -28,14 +35,18 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "gruvbox",
+        colorscheme = "kanagawa-wave",
       },
     },
-    
+
     -- dashboard configuration
     {
       "folke/snacks.nvim",
       opts = function(_, opts)
+        -- disable all animations
+        opts.animate = { enabled = false }
+        opts.scroll = { enabled = false }
+        
         opts.dashboard = opts.dashboard or {}
         opts.dashboard.preset = opts.dashboard.preset or {}
         opts.dashboard.preset.header = [[
@@ -49,7 +60,7 @@ require("lazy").setup({
         return opts
       end,
     },
-    
+
     -- neo-tree configuration
     {
       "nvim-neo-tree/neo-tree.nvim",
@@ -60,10 +71,10 @@ require("lazy").setup({
         },
       },
     },
-    
+
     -- disable blink.cmp since we're using nvim-cmp
     { "saghen/blink.cmp", enabled = false },
-    
+
     -- nvim-cmp configuration with supertab
     {
       "L3MON4D3/LuaSnip",
@@ -115,7 +126,7 @@ require("lazy").setup({
         })
       end,
     },
-    
+
     -- outline configuration
     {
       "hedyhli/outline.nvim",
@@ -135,7 +146,7 @@ require("lazy").setup({
         return opts
       end,
     },
-    
+
     -- telescope configuration
     {
       "nvim-telescope/telescope.nvim",
@@ -148,7 +159,7 @@ require("lazy").setup({
         })
       end,
     },
-    
+
     -- typescript/javascript configuration
     {
       "neovim/nvim-lspconfig",
@@ -201,6 +212,32 @@ require("lazy").setup({
               },
             },
           })
+        return opts
+      end,
+    },
+
+    -- prettier configuration for auto-formatting
+    {
+      "stevearc/conform.nvim",
+      opts = function(_, opts)
+        opts.formatters_by_ft = opts.formatters_by_ft or {}
+        opts.formatters_by_ft.javascript = { "prettier" }
+        opts.formatters_by_ft.typescript = { "prettier" }
+        opts.formatters_by_ft.javascriptreact = { "prettier" }
+        opts.formatters_by_ft.typescriptreact = { "prettier" }
+        opts.formatters_by_ft.json = { "prettier" }
+        opts.formatters_by_ft.html = { "prettier" }
+        opts.formatters_by_ft.css = { "prettier" }
+        opts.formatters_by_ft.scss = { "prettier" }
+        opts.formatters_by_ft.markdown = { "prettier" }
+        opts.formatters_by_ft.yaml = { "prettier" }
+
+        -- enable format on save
+        opts.format_on_save = {
+          timeout_ms = 500,
+          lsp_fallback = true,
+        }
+
         return opts
       end,
     },
