@@ -1,13 +1,10 @@
 {
   "window.density.editorTabHeight": "compact",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Gruvbox Dark Medium",
+  "workbench.colorTheme": "Everforest Dark",
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#000000",
-    "terminal.background": "#000000",
-    "[Evergreen]": {
-      "editor.background": "#1E2326"
-    }
+    "tab.activeBackground": "#000000"
+    // "terminal.background": "#000000",
   },
   "workbench.editor.empty.hint": "hidden",
   "workbench.editorAssociations": {
@@ -26,8 +23,8 @@
   "editor.formatOnSave": true,
   "editor.lightbulb.enabled": "off",
   "editor.scrollbar.horizontal": "hidden",
-  "editor.glyphMargin": false,
-  "editor.rulers": [80, 100, 120],
+  "editor.glyphMargin": true,
+  "editor.rulers": [100],
   "editor.tabSize": 2,
   "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
   "security.workspace.trust.untrustedFiles": "open",
@@ -36,7 +33,10 @@
   "vim.useCtrlKeys": false,
   "vim.smartRelativeLine": true,
   "files.simpleDialog.enable": true,
-  "everforest.darkWorkbench": "flat",
   "window.menuBarVisibility": "compact",
-  "workbench.layoutControl.enabled": false
+  "workbench.layoutControl.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "vim.showMarksInGutter": true,
+  "everforest.darkContrast": "hard",
+  "everforest.darkWorkbench": "high-contrast"
 }
