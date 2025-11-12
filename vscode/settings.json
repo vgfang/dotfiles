@@ -1,10 +1,12 @@
 {
   "window.density.editorTabHeight": "compact",
   "workbench.sideBar.location": "right",
-  "workbench.colorTheme": "Everforest Dark",
+  "workbench.colorTheme": "Kanagawa Dragon",
   "workbench.colorCustomizations": {
-    "tab.activeBackground": "#000000"
-    // "terminal.background": "#000000",
+    "tab.activeBackground": "#000000",
+    "[Evergreen]": {
+      "editor.background": "#1E2326"
+    }
   },
   "workbench.editor.empty.hint": "hidden",
   "workbench.editorAssociations": {
@@ -12,9 +14,10 @@
   },
   "workbench.editor.pinnedTabsOnSeparateRow": true,
   "editor.fontSize": 14,
+  "terminal.integrated.fontSize": 14,
   "editor.cursorBlinking": "solid",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.fontFamily": "'Jetbrains Mono', 'Consolas', 'Courier New', 'monospace'",
+  "editor.fontFamily": "'Iosevka Term','Jetbrains Mono', 'Consolas', 'Courier New', 'monospace'",
   "editor.fontLigatures": "'calt', 'liga', 'dlig'",
   "editor.wordWrap": "on",
   "editor.lineNumbers": "relative",
@@ -33,10 +36,10 @@
   "vim.useCtrlKeys": false,
   "vim.smartRelativeLine": true,
   "files.simpleDialog.enable": true,
+  "everforest.darkWorkbench": "high-contrast",
   "window.menuBarVisibility": "compact",
   "workbench.layoutControl.enabled": false,
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "vim.showMarksInGutter": true,
   "everforest.darkContrast": "hard",
-  "everforest.darkWorkbench": "high-contrast"
+  "workbench.activityBar.orientation": "vertical"
 }
