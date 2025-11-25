@@ -35,7 +35,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       opts = {
-        colorscheme = "kanagawa-wave",
+        colorscheme = "kanagawa-dragon",
       },
     },
 
@@ -231,13 +231,7 @@ require("lazy").setup({
         opts.formatters_by_ft.scss = { "prettier" }
         opts.formatters_by_ft.markdown = { "prettier" }
         opts.formatters_by_ft.yaml = { "prettier" }
-
-        -- enable format on save
-        opts.format_on_save = {
-          timeout_ms = 500,
-          lsp_fallback = true,
-        }
-
+        
         return opts
       end,
     },

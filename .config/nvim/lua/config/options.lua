@@ -9,6 +9,3 @@ vim.g.snacks_animate = false
 
 -- enable clipboard integration
 vim.opt.clipboard = "unnamedplus"
-
--- enable auto-formatting on save
-vim.g.autoformat = true

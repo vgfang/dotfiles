@@ -1,6 +1,7 @@
-theme = dark:GruvboxDark,light:catppuccin-latte
+theme = dark:Kanagawa Dragon,light:catppuccin-latte
 macos-titlebar-style = tabs
 cursor-style = block
 cursor-style-blink = false
 shell-integration = zsh
 shell-integration-features = no-cursor
+font-family = Iosevka Term
