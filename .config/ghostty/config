@@ -4,4 +4,4 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration = zsh
 shell-integration-features = no-cursor
-font-family = Iosevka Term
+font-family = I
