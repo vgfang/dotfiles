@@ -1,41 +1,31 @@
 // documentation: https://zed.dev/docs/configuring-zed
 {
-  "languages": {
-    "TSX": {
-      "show_inline_completions": true
-    }
-  },
-  "assistant": {
-    "default_model": {
-      "provider": "google",
-      "model": "gemini-2.0-flash-exp"
-    },
-    "version": "2"
-  },
   "ui_font_size": 14,
-  "buffer_font_size": 14,
-  "ui_font_family": "JetBrains Mono",
-  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 16,
+  "ui_font_family": "Iosevka Term",
+  "buffer_font_family": "Iosevka Term",
+  "relative_line_numbers": "enabled",
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Kanagawa Wave"
+    "light": "Kanagawa Lotus",
+    "dark": "Kanagawa Dragon",
   },
   "vim_mode": true,
   "cursor_blink": false,
   "format_on_save": "on",
-  "experimental.theme_overrides": {
-    // "editor.background": "#1a1b26",
-    // "background": "#1a1b26"
-    // "panel.background": "#1a1b26",
-    // "editor.gutter.background": "#1a1b26"
-  },
   "project_panel": {
     "button": true,
     "dock": "right",
-    "git_status": true
+    "git_status": true,
   },
-  "features": {
-    "inline_completion_provider": "supermaven"
-  }
+  "languages": {
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "prettier",
+          "arguments": ["--stdin-filepath", "{buffer_path}"],
+        },
+      },
+    },
+  },
 }
