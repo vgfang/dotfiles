@@ -256,6 +256,10 @@ require("lazy").setup({
     enabled = true, -- check for plugin updates periodically
     notify = false, -- notify on update
   }, -- automatically check for plugin updates
+  ui = {
+    -- disable animations
+    backdrop = 100,
+  },
   performance = {
     rtp = {
       -- disable some rtp plugins

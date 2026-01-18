@@ -9,3 +9,7 @@ vim.g.snacks_animate = false
 
 -- enable clipboard integration
 vim.opt.clipboard = "unnamedplus"
+
+-- enable word wrap
+vim.opt.wrap = true
+vim.opt.linebreak = true

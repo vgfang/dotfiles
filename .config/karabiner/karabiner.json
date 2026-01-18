@@ -8,6 +8,11 @@
   },
   "profiles": [
     {
+      "name": "Default profile",
+      "selected": true,
+      "parameters": {
+        "delay_milliseconds_before_open_device": 1000
+      },
       "complex_modifications": {
         "parameters": {
           "basic.simultaneous_threshold_milliseconds": 50,
@@ -18,14 +23,13 @@
         },
         "rules": [
           {
-            "description": "Add Caps Lock Layer",
+            "description": "Caps Lock special layer",
             "manipulators": [
               {
+                "type": "basic",
                 "from": {
                   "key_code": "caps_lock",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "modifiers": { "optional": ["any"] }
                 },
                 "to": [
                   {
@@ -42,480 +46,271 @@
                       "value": 0
                     }
                   }
-                ],
-                "to_if_alone": [
-                  {
-                    "set_variable": {
-                      "name": "caps_arrows_mode",
-                      "value": 1
-                    }
-                  }
-                ],
-                "type": "basic"
+                ]
               },
+
               {
+                "type": "basic",
                 "conditions": [
                   {
-                    "name": "caps_arrows_mode",
                     "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "h" },
+                "to": [{ "key_code": "left_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "j" },
+                "to": [{ "key_code": "down_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "k" },
+                "to": [{ "key_code": "up_arrow" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "l" },
+                "to": [{ "key_code": "right_arrow" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "q" },
+                "to": [{ "key_code": "escape" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "semicolon" },
+                "to": [{ "key_code": "escape" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "n" },
+                "to": [{ "key_code": "return_or_enter" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "m" },
+                "to": [{ "key_code": "delete_or_backspace" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "w" },
+                "to": [{ "key_code": "open_bracket" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "e" },
+                "to": [{ "key_code": "close_bracket" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "r" },
+                "to": [{ "key_code": "backslash" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "a" },
+                "to": [{ "key_code": "keypad_open_parenthesis" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "s" },
+                "to": [{ "key_code": "keypad_close_parenthesis" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "d" },
+                "to": [{ "key_code": "comma", "modifiers": ["left_shift"] }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "f" },
+                "to": [{ "key_code": "period", "modifiers": ["left_shift"] }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "x" },
+                "to": [{ "key_code": "grave_accent_and_tilde" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "c" },
+                "to": [{ "key_code": "slash" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "v" },
+                "to": [{ "key_code": "equal_sign" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "i" },
+                "to": [{ "key_code": "quote" }]
+              },
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
+                    "value": 1
+                  }
+                ],
+                "from": { "key_code": "o" },
+                "to": [{ "key_code": "semicolon" }]
+              },
+
+              {
+                "type": "basic",
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "caps_arrows_mode",
                     "value": 1
                   }
                 ],
                 "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
+                  "key_code": "tab",
+                  "modifiers": { "optional": ["any"] }
                 },
-                "to": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "x",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_forward"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "z",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "r",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "slash"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "left_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "down_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "up_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "right_arrow"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "semicolon",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "escape"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "n",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "delete_or_backspace"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "return_or_enter"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "w",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "comma"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "e",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "period"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "o",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "quote"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "equal_sign"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "hyphen"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "y",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "backslash"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "c",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "grave_accent_and_tilde"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "a",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "9",
-                    "modifiers": ["left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "0",
-                    "modifiers": ["left_shift"]
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "open_bracket"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
-                "conditions": [
-                  {
-                    "name": "caps_arrows_mode",
-                    "type": "variable_if",
-                    "value": 1
-                  }
-                ],
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "optional": ["any"]
-                  }
-                },
-                "to": [
-                  {
-                    "key_code": "close_bracket"
-                  }
-                ],
-                "type": "basic"
+                "to": [{ "key_code": "caps_lock" }]
               }
             ]
           }
@@ -523,177 +318,28 @@
       },
       "devices": [
         {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "game_pad_swap_sticks": false,
           "identifiers": {
-            "is_game_pad": false,
             "is_keyboard": true,
             "is_pointing_device": false,
-            "product_id": 0,
-            "vendor_id": 0
+            "is_game_pad": false,
+            "vendor_id": 0,
+            "product_id": 0
           },
           "ignore": false,
-          "manipulate_caps_lock_led": true,
-          "mouse_flip_horizontal_wheel": false,
-          "mouse_flip_vertical_wheel": false,
-          "mouse_flip_x": false,
-          "mouse_flip_y": false,
-          "mouse_swap_wheels": false,
-          "mouse_swap_xy": false,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
+          "manipulate_caps_lock_led": true
         },
         {
-          "disable_built_in_keyboard_if_exists": false,
-          "fn_function_keys": [],
-          "game_pad_swap_sticks": false,
           "identifiers": {
-            "is_game_pad": false,
             "is_keyboard": false,
             "is_pointing_device": true,
-            "product_id": 0,
-            "vendor_id": 0
+            "is_game_pad": false,
+            "vendor_id": 0,
+            "product_id": 0
           },
-          "ignore": true,
-          "manipulate_caps_lock_led": false,
-          "mouse_flip_horizontal_wheel": false,
-          "mouse_flip_vertical_wheel": false,
-          "mouse_flip_x": false,
-          "mouse_flip_y": false,
-          "mouse_swap_wheels": false,
-          "mouse_swap_xy": false,
-          "simple_modifications": [],
-          "treat_as_built_in_keyboard": false
+          "ignore": true
         }
       ],
-      "fn_function_keys": [
-        {
-          "from": {
-            "key_code": "f1"
-          },
-          "to": [
-            {
-              "consumer_key_code": "display_brightness_decrement"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f2"
-          },
-          "to": [
-            {
-              "consumer_key_code": "display_brightness_increment"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f3"
-          },
-          "to": [
-            {
-              "apple_vendor_keyboard_key_code": "mission_control"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f4"
-          },
-          "to": [
-            {
-              "apple_vendor_keyboard_key_code": "spotlight"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f5"
-          },
-          "to": [
-            {
-              "consumer_key_code": "dictation"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f6"
-          },
-          "to": [
-            {
-              "key_code": "f6"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f7"
-          },
-          "to": [
-            {
-              "consumer_key_code": "rewind"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f8"
-          },
-          "to": [
-            {
-              "consumer_key_code": "play_or_pause"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f9"
-          },
-          "to": [
-            {
-              "consumer_key_code": "fast_forward"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f10"
-          },
-          "to": [
-            {
-              "consumer_key_code": "mute"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f11"
-          },
-          "to": [
-            {
-              "consumer_key_code": "volume_decrement"
-            }
-          ]
-        },
-        {
-          "from": {
-            "key_code": "f12"
-          },
-          "to": [
-            {
-              "consumer_key_code": "volume_increment"
-            }
-          ]
-        }
-      ],
-      "name": "Default profile",
-      "parameters": {
-        "delay_milliseconds_before_open_device": 1000
-      },
-      "selected": true,
+      "fn_function_keys": [],
       "simple_modifications": [],
       "virtual_hid_keyboard": {
         "country_code": 0,

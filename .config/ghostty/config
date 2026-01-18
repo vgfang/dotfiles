@@ -1,7 +1,10 @@
-theme = dark:Kanagawa Dragon,light:catppuccin-latte
+theme = dark:Kanagawa Wave,light:Gruvbox Light
 macos-titlebar-style = tabs
 cursor-style = block
 cursor-style-blink = false
 shell-integration = zsh
 shell-integration-features = no-cursor
-font-family = I
+font-family = Iosevka Term
+font-size = 16
+macos-option-as-alt = left 
+macos-icon = chalkboard
