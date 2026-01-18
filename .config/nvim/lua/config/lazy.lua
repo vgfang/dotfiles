@@ -36,6 +36,11 @@ require("lazy").setup({
       "LazyVim/LazyVim",
       opts = {
         colorscheme = "kanagawa-dragon",
+        -- disable animations by default
+        news = {
+          lazyvim = false,
+          neovim = false,
+        },
       },
     },
 
@@ -43,9 +48,16 @@ require("lazy").setup({
     {
       "folke/snacks.nvim",
       opts = function(_, opts)
-        -- disable all animations
-        opts.animate = { enabled = false }
-        opts.scroll = { enabled = false }
+        -- disable all animations by default (for <leader>ua toggle)
+        opts.animate = opts.animate or {}
+        opts.animate.enabled = false
+
+        opts.scroll = opts.scroll or {}
+        opts.scroll.enabled = false
+
+        opts.indent = opts.indent or {}
+        opts.indent.animate = opts.indent.animate or {}
+        opts.indent.animate.enabled = false
 
         opts.dashboard = opts.dashboard or {}
         opts.dashboard.preset = opts.dashboard.preset or {}

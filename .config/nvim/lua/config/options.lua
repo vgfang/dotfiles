@@ -4,12 +4,14 @@
 vim.opt.winbar = "%=%m %f"
 vim.opt.ttimeoutlen = 00
 
--- disable all snacks animations
+-- disable all snacks animations by default (for <leader>ua toggle)
 vim.g.snacks_animate = false
+vim.g.lazyvim_animate = false
 
 -- enable clipboard integration
 vim.opt.clipboard = "unnamedplus"
 
--- enable word wrap
+-- enable word wrap by default (for <leader>uw toggle)
 vim.opt.wrap = true
 vim.opt.linebreak = true
+vim.g.lazyvim_wrap = true

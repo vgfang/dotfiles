@@ -195,7 +195,7 @@
                   }
                 ],
                 "from": { "key_code": "a" },
-                "to": [{ "key_code": "keypad_open_parenthesis" }]
+                "to": [{ "key_code": "9", "modifiers": ["left_shift"] }]
               },
               {
                 "type": "basic",
@@ -207,7 +207,7 @@
                   }
                 ],
                 "from": { "key_code": "s" },
-                "to": [{ "key_code": "keypad_close_parenthesis" }]
+                "to": [{ "key_code": "0", "modifiers": ["left_shift"] }]
               },
 
               {
@@ -327,20 +327,10 @@
           },
           "ignore": false,
           "manipulate_caps_lock_led": true
-        },
-        {
-          "identifiers": {
-            "is_keyboard": false,
-            "is_pointing_device": true,
-            "is_game_pad": false,
-            "vendor_id": 0,
-            "product_id": 0
-          },
-          "ignore": true
         }
       ],
-      "fn_function_keys": [],
       "simple_modifications": [],
+      "fn_function_keys": [],
       "virtual_hid_keyboard": {
         "country_code": 0,
         "indicate_sticky_modifier_keys_state": true,
