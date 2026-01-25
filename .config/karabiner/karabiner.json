@@ -23,6 +23,33 @@
         },
         "rules": [
           {
+            "description": "Alt layer - Enter and Backspace on n and m",
+            "manipulators": [
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "return_or_enter" }]
+              },
+              {
+                "type": "basic",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": ["option"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [{ "key_code": "delete_or_backspace" }]
+              }
+            ]
+          },
+          {
             "description": "Caps Lock special layer",
             "manipulators": [
               {
@@ -133,7 +160,7 @@
                   }
                 ],
                 "from": { "key_code": "n" },
-                "to": [{ "key_code": "return_or_enter" }]
+                "to": [{ "key_code": "delete_or_backspace" }]
               },
               {
                 "type": "basic",
@@ -145,7 +172,7 @@
                   }
                 ],
                 "from": { "key_code": "m" },
-                "to": [{ "key_code": "delete_or_backspace" }]
+                "to": [{ "key_code": "return_or_enter" }]
               },
 
               {
