@@ -15,3 +15,6 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.g.lazyvim_wrap = true
+
+-- enable auto-reload of files when changed externally
+vim.opt.autoread = true

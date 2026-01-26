@@ -117,19 +117,24 @@ require("lazy").setup({
         { name = "path" },
       })
 
-      -- your supertab mappings (unchanged)
+      -- VSCode-style autocomplete keybindings
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
+        -- Enter and Tab both confirm completion
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
-            cmp.select_next_item()
+            cmp.confirm({ select = true })
           elseif luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
-          elseif vim.fn.col(".") > 1 then
-            cmp.complete()
           else
             fallback()
           end
         end, { "i", "s" }),
+
+        -- VSCode-style arrow key navigation
+        ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
+        ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -181,17 +186,12 @@ require("lazy").setup({
     -- typescript/javascript configuration
     {
       "neovim/nvim-lspconfig",
-      opts = function(_, opts)
-        -- initialize servers table if it doesn't exist
-        opts.servers = opts.servers or {}
-
-        -- disable tsserver
-        opts.servers.tsserver = { enabled = false }
-
-        -- configure vtsls
-        opts.servers.vtsls =
-          vim.tbl_deep_extend("force", opts.servers.vtsls or {}, {
-            enabled = true,
+      opts = {
+        servers = {
+          -- disable tsserver
+          tsserver = { enabled = false },
+          -- configure vtsls
+          vtsls = {
             settings = {
               typescript = {
                 preferences = {
@@ -229,9 +229,9 @@ require("lazy").setup({
                 },
               },
             },
-          })
-        return opts
-      end,
+          },
+        },
+      },
     },
 
     -- prettier configuration for auto-formatting
