@@ -1,5 +1,5 @@
 {
-  "window.density.editorTabHeight": "compact",
+  "window.density.editorTabHeight": "default",
   "workbench.sideBar.location": "right",
   "workbench.colorTheme": "Kanagawa Dragon",
   "workbench.colorCustomizations": {
@@ -13,7 +13,7 @@
     "*.csproj": "default"
   },
   "workbench.editor.pinnedTabsOnSeparateRow": true,
-  "editor.fontSize": 14,
+  "editor.fontSize": 16,
   "terminal.integrated.fontSize": 14,
   "editor.cursorBlinking": "solid",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -27,7 +27,6 @@
   "editor.lightbulb.enabled": "off",
   "editor.scrollbar.horizontal": "hidden",
   "editor.glyphMargin": true,
-  "editor.rulers": [100],
   "editor.tabSize": 2,
   "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
   "security.workspace.trust.untrustedFiles": "open",
@@ -36,10 +35,9 @@
   "vim.useCtrlKeys": false,
   "vim.smartRelativeLine": true,
   "files.simpleDialog.enable": true,
-  "everforest.darkWorkbench": "high-contrast",
-  "window.menuBarVisibility": "compact",
   "workbench.layoutControl.enabled": false,
   "vim.showMarksInGutter": true,
-  "everforest.darkContrast": "hard",
-  "workbench.activityBar.orientation": "vertical"
+  "workbench.activityBar.orientation": "vertical",
+  "claudeCode.preferredLocation": "panel",
+  "workbench.settings.applyToAllProfiles": []
 }
